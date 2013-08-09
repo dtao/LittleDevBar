@@ -1,0 +1,50 @@
+.little-dev-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  padding: 10px;
+  color: #fff;
+  font-family: monospace;
+}
+
+.little-dev-bar:before {
+  background-color: #000;
+
+  /* fill the same area as the bar */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+
+  /* make it actually render */
+  display: block;
+  content: '';
+
+  /* transparency */
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
+.little-dev-bar span {
+  display: inline-block;
+  font-weight: bold;
+}
+
+.little-dev-bar span:not(:last-child) {
+  border-right: 2px solid #eee;
+  margin-right: 10px;
+  padding-right: 10px;
+}
+
+.little-dev-bar span:nth-child(even) {
+  color: #def;
+}
+
+.little-dev-bar span:before {
+  content: attr(data-label) ': ';
+  font-weight: normal;
+}
